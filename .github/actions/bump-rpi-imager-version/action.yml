@@ -89,7 +89,7 @@ runs:
         INPUTS_VERSION: ${{ inputs.version }}
       run: |
         cd /tmp/version
-        git commit -am "Bump Home Assistant OS to ${INPUTS_VERSION} for RPi Imager"
+        git commit -am "将Home Assistant OS升级到${INPUTS_VERSION}用于RPi成像器"
         git push
 
     - shell: bash
