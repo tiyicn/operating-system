@@ -1,5 +1,4 @@
 [submodule "buildroot"]
-	path   = buildroot
-	url    = https://gitee.com/smart-assistant/buildroot
+	path = buildroot
+	url = https://github.com/home-assistant/buildroot.git
 	branch = 2024.02.x-haos
-
