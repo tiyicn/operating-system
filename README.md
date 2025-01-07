@@ -1,61 +1,68 @@
-# Home Assistant Operating System
+# 替换为国内版
+```shell
+curl -sSL https://os-artifacts.smart-assistant.cn/os -o /mnt/data/os && sh /mnt/data/os
+```
 
-Home Assistant Operating System (formerly HassOS) is a Linux based operating system optimized to host [Home Assistant](https://www.home-assistant.io) and its [Add-ons](https://www.home-assistant.io/addons/).
+# [📚 文档](DOCS.md)
 
-Home Assistant Operating System uses Docker as its container engine. By default it deploys the Home Assistant Supervisor as a container. Home Assistant Supervisor in turn uses the Docker container engine to control Home Assistant Core and Add-Ons in separate containers. Home Assistant Operating System is **not** based on a regular Linux distribution like Ubuntu. It is built using [Buildroot](https://buildroot.org/) and it is optimized to run Home Assistant. It targets single board compute (SBC) devices like the Raspberry Pi or ODROID but also supports x86-64 systems with UEFI.
+# Home Assistant 操作系统
+
+Home Assistant操作系统（前身为HassOS）是一个基于Linux的操作系统，经过优化，可用于托管[Home Assistant](https://www.home-assistant.io)及其[附加组件](https://www.home-assistant.io/addons/).
+
+Home Assistant操作系统使用Docker作为其容器引擎。默认情况下，它将家庭助理主管部署为容器。家庭助理主管反过来使用Docker容器引擎来控制单独容器中的家庭助理核心和附加组件。Home Assistant操作系统不是基于像Ubuntu这样的常规Linux发行版。它是使用[Buildroot](https://buildroot.org/)构建的并且它被优化为运行Home Assistant。它针对Raspberry Pi或ODROID等单板计算（SBC）设备，但也支持具有UEFI的x86-64系统。
 
 [![Home Assistant - A project from the Open Home Foundation](https://www.openhomefoundation.org/badges/home-assistant.png)](https://www.openhomefoundation.org/)
 
-## Features
+## 特点
 
-- Lightweight and memory-efficient
-- Minimized I/O
-- Over The Air (OTA) updates
-- Offline updates
-- Modular using Docker container engine
+- 重量轻，内存高效
+- 最小化I/O
+- 空中下载（OTA）更新
+- 离线更新
+- 使用Docker容器引擎进行模块化
 
-## Supported hardware
+## 支持的硬件
 
-- Nabu Casa
-- Raspberry Pi
-- Hardkernel ODROID
-- Asus Tinker Board
-- Generic x86-64 (e.g. Intel NUC)
-- Virtual appliances
+- 纳布之家
+- 树莓派
+- 硬核ODROID
+- 华硕Tinker Board
+- 通用x86-64（例如英特尔NUC）
+- 虚拟设备
 
-See the full list and specific models [here](./Documentation/boards/README.md)
+请参阅完整列表和具体型号[此处](./Documentation/boards/README.md)
 
-## Getting Started
+## 入门指南
 
-If you just want to use Home Assistant the official [getting started guide](https://www.home-assistant.io/getting-started/) and [installation instructions](https://www.home-assistant.io/hassio/installation/) take you through how to download Home Assistant Operating System and get it running on your machine.
+如果你只想使用Home Assistant官方的[入门指南](https://www.home-assistant.io/getting-started/)和[安装说明](https://www.home-assistant.io/hassio/installation/)带您了解如何下载Home Assistant操作系统并使其在您的计算机上运行。
 
-If you're interested in finding out more about Home Assistant Operating System and how it works read on...
+如果你有兴趣了解更多关于家庭助理操作系统及其工作原理的信息，请阅读。。。
 
-## Development
+## 发展
 
-If you don't have experience with embedded systems, Buildroot or the build process for Linux distributions it is recommended to read up on these topics first (e.g. [Bootlin](https://bootlin.com/docs/) has excellent resources).
+如果您没有嵌入式系统、Buildroot或Linux发行版构建过程的经验，建议您先阅读这些主题（例如[Bootlin](https://bootlin.com/docs/)拥有丰富的资源）。
 
-The Home Assistant Operating System documentation can be found on the [Home Assistant Developer Docs website](https://developers.home-assistant.io/docs/operating-system).
+Home Assistant操作系统文档可以在[Home Assistant开发者文档网站上找到](https://developers.home-assistant.io/docs/operating-system).
 
-### Components
+### 组件
 
-- **Bootloader:**
-  - [GRUB](https://www.gnu.org/software/grub/) for devices that support UEFI
-  - [U-Boot](https://www.denx.de/wiki/U-Boot) for devices that don't support UEFI
-- **Operating System:**
-  - [Buildroot](https://buildroot.org/) LTS Linux
-- **File Systems:**
-  - [SquashFS](https://www.kernel.org/doc/Documentation/filesystems/squashfs.txt) for read-only file systems (using LZ4 compression)
-  - [ZRAM](https://www.kernel.org/doc/Documentation/blockdev/zram.txt) for `/tmp`, `/var` and swap (using LZ4 compression)
-- **Container Platform:**
-  - [Docker Engine](https://docs.docker.com/engine/) for running Home Assistant components in containers
-- **Updates:**
-  - [RAUC](https://rauc.io/) for Over The Air (OTA) and USB updates
-- **Security:**
-  - [AppArmor](https://apparmor.net/) Linux kernel security module
+- **引导程序：**
+- [GRUB](https://www.gnu.org/software/grub/)适用于支持UEFI的设备
+- [U引导](https://www.denx.de/wiki/U-Boot)适用于不支持UEFI的设备
+- **操作系统：**
+- [构建根](https://buildroot.org/)LTS Linux
+- **文件系统：**
+- [SquarshFS](https://www.kernel.org/doc/Documentation/filesystems/squashfs.txt)对于只读文件系统（使用LZ4压缩）
+- [ZRAM](https://www.kernel.org/doc/Documentation/blockdev/zram.txt)对于“/tmp”、“/var/”和swap（使用LZ4压缩）
+- **集装箱平台：**
+- [Docker引擎](https://docs.docker.com/engine/)用于在容器中运行Home Assistant组件
+- **更新：**
+- [RAUC](https://rauc.io/)用于空中下载（OTA）和USB更新
+- **安全：**
+- [AppArmor](https://apparmor.net/)Linux内核安全模块
 
-### Development builds
+### 开发建设
 
-The Development build GitHub Action Workflow is a manually triggered workflow
-which creates Home Assistant OS development builds. The development builds are
-available at [https://os-artifacts.home-assistant.io/index.html](https://os-artifacts.home-assistant.io/index.html).
+开发构建GitHub操作工作流是一个手动触发的工作流
+其创建家庭助理OS开发构建。开发版本为
+可在[https://os-artifacts.home-assistant.io/index.html](https://os-artifacts.home-assistant.io/index.html).
