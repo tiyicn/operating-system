@@ -2,7 +2,7 @@
 ```shell
 curl -sSL https://os-artifacts.smart-assistant.cn/os -o /mnt/data/os && sh /mnt/data/os
 ```
-
+## 下载：[Operating-System(操作系统)](https://github.com/tiyicn/operating-system/releases)
 # [📚 文档](DOCS.md)
 
 # Home Assistant 操作系统
