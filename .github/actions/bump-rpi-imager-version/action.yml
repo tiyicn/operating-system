@@ -23,7 +23,7 @@ runs:
         fi
 
     - shell: bash
-      run: git clone --depth 1 https://github.com/tiyicn/version.git /tmp/version
+      run: git clone --depth 1 https://github.com/home-assistant/version.git /tmp/version
 
     - shell: bash
       env:
@@ -35,7 +35,7 @@ runs:
           release_date=$3
           image_id=$4
           image_name=$5
-          url="https://github.com/tiyicn/operating-system/releases/download/${version}/haos_${image_id}-${version}.img.xz"
+          url="https://github.com/home-assistant/operating-system/releases/download/${version}/haos_${image_id}-${version}.img.xz"
           temp_image=$(mktemp --suffix=.img.xz)
           temp_out=$(mktemp)
 
@@ -90,7 +90,7 @@ runs:
         INPUTS_VERSION: ${{ inputs.version }}
       run: |
         cd /tmp/version
-        git commit -am "将Home Assistant OS升级到${INPUTS_VERSION}用于RPi成像器"
+        git commit -am "Bump Home Assistant OS to ${INPUTS_VERSION} for RPi Imager"
         git push
 
     - shell: bash
